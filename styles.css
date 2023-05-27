@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --light-red: hsl(0, 100%, 67%);
+  --orangey-yellow: hsl(39, 100%, 56%);
+  --green-teal: hsl(166, 100%, 37%);
+  --cobalt-blue: hsl(234, 85%, 45%);
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+  --radius: 2rem;
+}
+
+@font-face {
+  font-family: "HankenGrotesk";
+  font-display: swap;
+  src: url("./assets/fonts/HankenGrotesk-VariableFont_wght.ttf");
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+  font-family: "HankenGrotesk", sans-serif;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.result {
+  display: flex;
+  max-width: 60rem;
+  border-radius: 2rem;
+  border-left-color: transparent;
+  box-shadow: 10px 8px 14px 0px hsla(241, 100%, 89%, 0.27);
+}
+
+.result__score {
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+  flex-basis: 50%;
+  padding: 4rem;
+  text-align: center;
+}
+
+.result__score h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--light-lavender);
+}
+
+.result__score-value {
+  margin: 4rem auto 2rem;
+  border-radius: 50%;
+  padding: 2rem;
+  width: 50%;
+  background: linear-gradient(
+    180deg,
+    hsla(256, 72%, 46%, 1),
+    hsla(241, 72%, 46%, 0)
+  );
+  width: 17rem;
+  height: 17rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 5rem;
+  color: var(--white);
+  font-weight: 800;
+}
+
+.result__score-value p {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: hsla(241, 100%, 89%, 0.6);
+}
+
+.result__score-remark {
+  margin: 2rem 0;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.result__score-trivia {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--light-lavender);
+}
+
+.result__summary {
+  flex-basis: 50%;
+  padding: 4rem 3rem;
+}
+
+.result__summary h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.result__summary-score span:first-of-type {
+  font-weight: 700;
+}
+
+.result__summary-score span:last-of-type {
+  color: hsla(224, 30%, 27%, 0.6);
+  font-weight: 700;
+}
+
+ul {
+  margin: 2rem 0;
+  list-style-type: none;
+}
+
+li {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem 1.5rem 1.5rem;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  justify-content: space-between;
+}
+
+li div:first-of-type {
+  font-weight: 500;
+}
+
+li.result__summary-reaction {
+  background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+li.result__summary-reaction div:first-of-type {
+  color: var(--light-red);
+}
+
+li.result__summary-memory {
+  background-color: hsla(39, 100%, 56%, 0.1);
+}
+
+li.result__summary-memory div:first-of-type {
+  color: var(--orangey-yellow);
+}
+
+li.result__summary-verbal {
+  background-color: hsla(166, 100%, 37%, 0.1);
+}
+
+li.result__summary-verbal div:first-of-type {
+  color: var(--green-teal);
+}
+
+li.result__summary-visual {
+  background-color: hsla(234, 85%, 45%, 0.1);
+}
+
+li.result__summary-visual div:first-of-type {
+  color: var(--cobalt-blue);
+}
+
+button {
+  position: relative;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  margin: 2rem 0 0;
+  border-radius: 9999px;
+  border: none;
+  outline: none;
+  font-size: 1.7rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(180deg, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+  z-index: 1;
+  transition: transform 0.2s linear;
+}
+
+button::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 9999px;
+  background: var(--dark-gray-blue);
+  z-index: -1;
+  transition: opacity 0.2s linear;
+  opacity: 0;
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+button:active {
+  transform: translateY(0.6rem);
+}
+
+img {
+  vertical-align: top;
+  display: inline-block;
+  margin: 0 0.5rem 0 0;
+}
+
+.attribution {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 650px) {
+  html {
+    font-size: 55%;
+  }
+
+  .result {
+    flex-direction: column;
+  }
+}
